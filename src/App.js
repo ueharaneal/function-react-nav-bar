@@ -1,33 +1,22 @@
-import { useState, useEffect  } from 'react'
-import Dropdown from './components/Dropdown'
-
-function App() {
-  const [selected, setSelected] = useState(null);
-
-
-  const handleSelect = (option)=>{
-    setSelected(option)
-  }
-
-  const options = [
-    {
-        label:"Red",
-        value:'red'
-    },
-    {
-        label:'Blue',
-        value:'blue'
-    },
-    {
-        label:'Green',
-        value:'green'
-    }
-]
+import Link from "./components/Link"
+import Route from "./components/Route"
+import AccordionPage from './pages/AccordionPage'
+import DropdownPage from "./pages/DropdownPage"
+function App (){
   return(
     <div>
-      <Dropdown options ={options} value={selected} onChange={handleSelect} />
+      <Link to="/accordion">Go To Accordion</Link>
+      <Link to="/dropdown">Go To Dropdown</Link>
+      <div>
+        <Route path="/accordion">
+          <AccordionPage/>
+        </Route>
+        <Route path="/dropdown">
+          <DropdownPage/>
+        </Route>
+      </div>
     </div>
   )
 }
 
-export default App;  
+export default App;
